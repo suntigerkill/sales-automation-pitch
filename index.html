@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalesFlow Pro — Conference Sales Automation India</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a08;--surface:#111110;--card:#181815;--border:#2a2a26;--accent:#e8ff47;--accent2:#ff6b35;--accent3:#47d4ff;--text:#f0ede6;--muted:#8a8778;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+.cursor{position:fixed;width:10px;height:10px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:exclusion;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;border-bottom:1px solid var(--border);background:rgba(10,10,8,.92);backdrop-filter:blur(20px);}
+.logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:var(--accent);}
+.nav-tag{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;}
+.nav-cta{background:var(--accent);color:var(--bg);padding:10px 22px;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;border:none;cursor:none;font-family:'DM Sans',sans-serif;}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:140px 48px 80px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(232,255,71,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,.04) 1px,transparent 1px);background-size:60px 60px;}
+.hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(232,255,71,.1) 0%,transparent 70%);top:-100px;right:-100px;animation:float 12s ease-in-out infinite;}
+.hero-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(71,212,255,.07) 0%,transparent 70%);bottom:0;left:200px;animation:float 15s ease-in-out infinite reverse;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-40px)}}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:24px;opacity:0;animation:up .8s ease forwards .2s;}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,10vw,140px);line-height:.9;letter-spacing:2px;margin-bottom:32px;opacity:0;animation:up .8s ease forwards .4s;}
+.hero-title span{color:var(--accent);display:block;}
+.hero-title em{font-style:normal;color:var(--accent2);}
+.hero-sub{font-size:18px;color:var(--muted);max-width:520px;line-height:1.7;margin-bottom:48px;opacity:0;animation:up .8s ease forwards .6s;}
+.hero-cta{display:flex;gap:16px;opacity:0;animation:up .8s ease forwards .8s;}
+.btn-primary{background:var(--accent);color:var(--bg);padding:16px 36px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:1px;text-transform:uppercase;border:none;cursor:none;transition:transform .2s,box-shadow .2s;}
+.btn-primary:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--accent2);}
+.btn-ghost{border:1px solid var(--border);color:var(--text);padding:16px 36px;font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:1px;text-transform:uppercase;background:transparent;cursor:none;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{position:absolute;right:48px;bottom:80px;display:flex;flex-direction:column;gap:24px;opacity:0;animation:up .8s ease forwards 1s;}
+.stat{text-align:right;border-right:2px solid var(--accent);padding-right:20px;}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--accent);line-height:1;}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.ticker-wrap{padding:20px 0;background:var(--accent);overflow:hidden;white-space:nowrap;}
+.ticker{display:inline-flex;animation:tick 22s linear infinite;}
+.ticker-item{font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:3px;color:var(--bg);padding:0 40px;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.sec{padding:100px 48px;}
+.sec-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:4px;color:var(--accent);text-transform:uppercase;margin-bottom:16px;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(42px,5vw,72px);line-height:1;margin-bottom:24px;}
+.reveal{opacity:1;transform:translateY(0);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-anim{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease;}
+.reveal-anim.visible{opacity:1;transform:translateY(0);}
+.prob-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:56px;background:var(--border);}
+.prob-card{background:var(--card);padding:40px;position:relative;overflow:hidden;transition:background .3s;}
+.prob-card:hover{background:#1e1e1a;}
+.prob-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent2);transform:scaleY(0);transform-origin:top;transition:transform .4s;}
+.prob-card:hover::before{transform:scaleY(1);}
+.prob-icon{font-size:28px;margin-bottom:16px;}
+.prob-title{font-size:17px;font-weight:500;margin-bottom:10px;}
+.prob-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.sol-sec{padding:100px 48px;background:var(--surface);}
+.feat-subtitle{font-size:15px;color:var(--muted);max-width:680px;line-height:1.8;margin-bottom:48px;}
+.feat-subtitle strong{color:var(--text);border-bottom:1px solid var(--accent);font-weight:400;}
+.feat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--border);}
+.feat{background:var(--card);padding:36px 28px;cursor:none;transition:background .3s,transform .3s;}
+.feat:hover{background:#1a1a16;transform:translateY(-4px);z-index:1;}
+.feat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--border);line-height:1;margin-bottom:16px;transition:color .3s;}
+.feat:hover .feat-num{color:var(--accent);}
+.feat-icon{width:44px;height:44px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px;transition:border-color .3s,background .3s;}
+.feat:hover .feat-icon{border-color:var(--accent);background:rgba(232,255,71,.1);}
+.feat-name{font-size:14px;font-weight:500;margin-bottom:10px;line-height:1.3;}
+.feat-desc{font-size:13px;color:var(--muted);line-height:1.6;}
+.feat-more{background:var(--bg);border:2px dashed var(--border);padding:36px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:14px;transition:border-color .3s;}
+.feat-more:hover{border-color:rgba(232,255,71,.4);}
+.feat-more-icon{font-size:32px;opacity:.4;}
+.feat-more-title{font-size:13px;color:var(--muted);line-height:1.7;}
+.feat-more-cta{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:2px;border-bottom:1px solid rgba(232,255,71,.3);padding-bottom:2px;cursor:none;}
+.pipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px;}
+.pipe-card{background:var(--card);border:1px solid var(--border);padding:32px 28px;transition:border-color .3s,transform .3s;}
+.pipe-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.pipe-wide{grid-column:1/-1;display:grid;grid-template-columns:90px 1fr;column-gap:24px;border-color:rgba(255,107,53,.3);background:rgba(255,107,53,.03);}
+.pipe-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--accent);background:rgba(232,255,71,.08);border:1px solid rgba(232,255,71,.25);padding:4px 10px;margin-bottom:16px;}
+.pipe-badge-cold{color:var(--accent2);background:rgba(255,107,53,.1);border-color:rgba(255,107,53,.4);}
+.pipe-icon{font-size:28px;margin-bottom:12px;}
+.pipe-title{font-size:15px;font-weight:500;margin-bottom:10px;}
+.pipe-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px;}
+.pipe-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.pipe-tag{padding:3px 10px;font-size:10px;font-family:'DM Mono',monospace;border:1px solid var(--border);color:var(--muted);background:var(--bg);}
+.pipe-card:hover .pipe-tag{border-color:rgba(232,255,71,.3);color:var(--accent);}
+.pipe-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);border-top:1px solid var(--border);padding-top:12px;}
+.pipe-outcome{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--border);}
+.po-item{padding:32px 24px;text-align:center;border-right:1px solid var(--border);}
+.po-item:last-child{border-right:none;}
+.po-num{font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--accent);line-height:1;margin-bottom:8px;}
+.po-label{font-size:12px;color:var(--muted);line-height:1.5;}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.ben-card{border:1px solid var(--border);padding:40px;transition:border-color .3s;}
+.ben-card:hover{border-color:var(--accent3);}
+.ben-big{font-family:'Bebas Neue',sans-serif;font-size:60px;color:var(--accent3);line-height:1;margin-bottom:12px;}
+.ben-title{font-size:16px;font-weight:500;margin-bottom:10px;}
+.ben-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.cmp-table{margin-top:56px;border:1px solid var(--border);}
+.cmp-row{display:grid;grid-template-columns:2fr 1fr 1fr;border-bottom:1px solid var(--border);}
+.cmp-row:last-child{border-bottom:none;}
+.cmp-cell{padding:16px 28px;font-size:14px;border-right:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+.cmp-cell:last-child{border-right:none;}
+.cmp-head{background:var(--card);}
+.cmp-head .cmp-cell{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.cmp-head .cmp-hl{color:var(--accent);background:rgba(232,255,71,.05);}
+.cmp-hl-col{background:rgba(232,255,71,.03);}
+.chk{color:var(--accent);}
+.crs{color:#444;}
+.demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);margin-top:52px;}
+.demo-left{background:var(--card);padding:48px 40px;}
+.demo-right{background:#0d0d0b;padding:48px 40px;}
+.dpanel-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:28px;}
+.dfield{margin-bottom:18px;}
+.dlabel{display:block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;font-family:'DM Mono',monospace;}
+.dinput{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--text);padding:11px 14px;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .2s;appearance:none;}
+.dinput:focus{border-color:var(--accent);}
+.dinput option{background:var(--bg);}
+.dtarea{height:80px;resize:none;}
+.demo-idle{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:420px;text-align:center;gap:12px;}
+.demo-idle-icon{font-size:48px;opacity:.3;}
+.demo-idle-txt{font-size:15px;color:var(--muted);}
+.demo-idle-sub{font-size:13px;color:var(--border);}
+.demo-live{display:flex;flex-direction:column;gap:20px;}
+.dstep{border-left:1px solid var(--border);padding-left:18px;}
+.dstep-hd{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.dstep-dot{width:10px;height:10px;border-radius:50%;background:var(--border);min-width:10px;transition:background .3s;}
+.dstep-dot.run{background:var(--accent);box-shadow:0 0 8px var(--accent);animation:pulse 1s ease-in-out infinite;}
+.dstep-dot.done{background:var(--accent);animation:none;}
+@keyframes pulse{0%,100%{box-shadow:0 0 4px var(--accent)}50%{box-shadow:0 0 16px var(--accent)}}
+.dstep-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;flex:1;}
+.dstep-time{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);}
+.dstep-body{font-size:12px;color:var(--text);line-height:1.7;background:var(--card);padding:12px 14px;border:1px solid var(--border);}
+.dtag{display:inline-block;padding:2px 8px;font-size:10px;font-family:'DM Mono',monospace;margin:2px;}
+.t-sp{background:rgba(232,255,71,.15);color:var(--accent);border:1px solid var(--accent);}
+.t-de{background:rgba(71,212,255,.15);color:var(--accent3);border:1px solid var(--accent3);}
+.t-sk{background:rgba(255,107,53,.15);color:var(--accent2);border:1px solid var(--accent2);}
+.t-hi{background:rgba(232,255,71,.2);color:var(--accent);border:1px solid var(--accent);}
+.t-mi{background:rgba(255,200,50,.15);color:#ffc832;border:1px solid #ffc832;}
+.t-lo{background:rgba(100,100,100,.1);color:var(--muted);border:1px solid var(--border);}
+.demo-done{border:1px solid var(--accent);padding:20px;text-align:center;background:rgba(232,255,71,.04);}
+.demo-done-icon{font-size:28px;margin-bottom:8px;}
+.demo-done-txt{font-size:14px;font-weight:500;color:var(--accent);margin-bottom:6px;}
+.demo-done-sub{font-size:12px;color:var(--muted);}
+.case-tabs{display:flex;gap:2px;margin-top:48px;background:var(--border);}
+.ctab{flex:1;background:var(--card);border:none;color:var(--muted);padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:none;transition:background .2s,color .2s;}
+.ctab:hover{color:var(--text);background:#1e1e1a;}
+.ctab.active{background:var(--accent);color:var(--bg);font-weight:500;}
+.case-card{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);animation:fadeIn .4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.case-left{background:var(--card);padding:52px 44px;}
+.case-right{background:var(--surface);padding:52px 44px;display:flex;flex-direction:column;gap:28px;}
+.ctag-cs{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--accent2);text-transform:uppercase;margin-bottom:18px;}
+.ctitle{font-size:20px;font-weight:500;line-height:1.4;margin-bottom:18px;}
+.cdesc{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:24px;}
+.clabel{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:12px;}
+.citem{font-size:13px;color:var(--text);padding:8px 0;border-bottom:1px solid var(--border);line-height:1.5;}
+.cchallenge{margin-bottom:24px;}
+.cmetrics{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);}
+.cmetric{background:var(--card);padding:22px 18px;}
+.cmetric-num{font-family:'Bebas Neue',sans-serif;font-size:32px;line-height:1;margin-bottom:6px;}
+.cmetric-label{font-size:11px;color:var(--muted);line-height:1.4;}
+.cquote{border-left:3px solid var(--accent);padding-left:18px;}
+.cquote-txt{font-size:13px;color:var(--text);line-height:1.8;font-style:italic;margin-bottom:10px;}
+.cquote-auth{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
+.ctl-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:10px;}
+.ctl-bar{display:flex;height:44px;gap:2px;}
+.ctl-seg{display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-family:'DM Mono',monospace;color:var(--bg);font-weight:700;text-align:center;line-height:1.3;padding:4px;}
+.ctl-seg span{font-weight:400;opacity:.8;}
+.ctl-seg-muted{background:#3a3a36 !important;color:#c8c4b8 !important;border:1px solid #606058;}
+.ctl-seg-muted span{opacity:1 !important;color:#a0a090 !important;}
+.calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2px;background:var(--border);align-items:start;margin-top:56px;}
+.calc-in{background:var(--card);padding:48px 40px;}
+.calc-in-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:32px;}
+.calc-group{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border);}
+.calc-group:last-child{border-bottom:none;margin-bottom:0;}
+.calc-gtitle{font-size:14px;font-weight:500;margin-bottom:20px;}
+.calc-row{margin-bottom:18px;}
+.calc-lbl{display:block;font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5;}
+.sldr-wrap{display:flex;align-items:center;gap:14px;}
+.sldr{flex:1;-webkit-appearance:none;appearance:none;height:2px;background:var(--border);outline:none;cursor:pointer;}
+.sldr::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;background:var(--accent);cursor:pointer;border-radius:0;}
+.sldr-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);min-width:88px;text-align:right;}
+.chkboxes{display:flex;flex-direction:column;gap:10px;}
+.chk-lbl{display:flex;align-items:center;gap:12px;cursor:pointer;font-size:13px;color:var(--muted);}
+.chk-lbl input[type=checkbox]{width:14px;height:14px;accent-color:var(--accent);cursor:pointer;flex-shrink:0;}
+.chk-lbl input:checked+span{color:var(--text);}
+.calc-out{background:#0d0d0b;padding:48px 40px;position:sticky;top:80px;}
+.calc-out-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;}
+.calc-total{border:1px solid var(--accent);padding:28px 20px;text-align:center;background:rgba(232,255,71,.04);margin-bottom:28px;}
+.calc-total-lbl{font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;font-family:'DM Mono',monospace;margin-bottom:10px;}
+.calc-total-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent);line-height:1;margin-bottom:10px;transition:all .3s ease;}
+.calc-total-sub{font-size:11px;color:var(--muted);line-height:1.6;}
+.calc-bk-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--muted);text-transform:uppercase;margin-bottom:14px;}
+.calc-bk-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--border);gap:10px;}
+.calc-bk-row:last-child{border-bottom:none;}
+.calc-bk-lbl{font-size:12px;color:var(--muted);flex:1;}
+.calc-bk-val{font-family:'DM Mono',monospace;font-size:12px;color:var(--accent);white-space:nowrap;transition:all .3s;}
+.calc-assume{background:var(--card);padding:18px;margin:16px 0;border:1px solid var(--border);}
+.calc-assume-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--muted);margin-bottom:10px;text-transform:uppercase;}
+.calc-assume-item{font-size:11px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);line-height:1.5;}
+.calc-assume-item:last-child{border-bottom:none;}
+.calc-disclaimer{font-size:12px;line-height:1.7;padding:16px;border:1px solid rgba(255,200,50,.45);background:rgba(255,200,50,.07);color:#d4c060;}
+.calc-disclaimer strong{color:#ffc832;}
+.trust-sec{padding:100px 48px;background:var(--bg);}
+.trust-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:var(--border);margin-top:56px;margin-bottom:48px;}
+.trust-card{background:var(--card);padding:40px 36px;transition:background .3s;}
+.trust-card:hover{background:#1c1c18;}
+.trust-card--featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(232,255,71,.07) 0%,rgba(232,255,71,.02) 100%);border-top:3px solid var(--accent);}
+.trust-featured-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:28px;}
+.trust-stat-row{display:flex;gap:48px;margin-bottom:24px;flex-wrap:wrap;}
+.trust-stat-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:var(--accent);line-height:1;margin-bottom:6px;}
+.trust-stat-label{font-size:12px;color:var(--muted);letter-spacing:1px;}
+.trust-statement{font-size:15px;color:var(--text);line-height:1.7;max-width:700px;border-left:3px solid var(--accent);padding-left:18px;}
+.trust-card-icon{font-size:28px;margin-bottom:16px;}
+.trust-card-title{font-size:16px;font-weight:500;margin-bottom:12px;}
+.trust-card-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.trust-bar{display:flex;background:var(--card);border:1px solid var(--border);flex-wrap:wrap;}
+.trust-bar-item{display:flex;align-items:center;gap:10px;padding:20px 24px;font-size:13px;color:var(--text);flex:1;min-width:160px;}
+.trust-bar-icon{color:var(--accent);font-size:14px;}
+.trust-bar-div{width:1px;background:var(--border);margin:12px 0;}
+.booking-sec{padding:100px 48px;background:var(--surface);display:grid;grid-template-columns:1fr 1fr;gap:80px;}
+.book-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(38px,4vw,60px);line-height:1;margin:14px 0 22px;}
+.book-sub{font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:40px;}
+.promises{display:flex;flex-direction:column;gap:22px;}
+.promise{display:flex;gap:18px;align-items:flex-start;}
+.pr-icon{font-size:22px;min-width:30px;}
+.pr-title{font-size:15px;font-weight:500;margin-bottom:4px;}
+.pr-sub{font-size:13px;color:var(--muted);line-height:1.6;}
+.bform{background:var(--card);border:1px solid var(--border);padding:36px;}
+.bform-title{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;margin-bottom:24px;color:var(--accent);}
+.brow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.bfield{display:flex;flex-direction:column;gap:7px;margin-bottom:14px;}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:7px;}
+.slot{padding:9px 6px;border:1px solid var(--border);font-size:11px;font-family:'DM Mono',monospace;text-align:center;cursor:none;transition:border-color .2s,background .2s,color .2s;color:var(--muted);}
+.slot:hover{border-color:var(--accent);color:var(--text);}
+.slot.selected{background:var(--accent);color:var(--bg);border-color:var(--accent);font-weight:700;}
+.bsuccess{background:var(--card);border:1px solid var(--accent);padding:52px 36px;text-align:center;flex-direction:column;align-items:center;gap:14px;display:none;}
+.bsuccess-icon{font-size:52px;}
+.bsuccess-title{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);}
+.bsuccess-sub{font-size:13px;color:var(--muted);line-height:1.7;max-width:340px;}
+.bsuccess-what{border:1px solid var(--border);padding:20px;width:100%;text-align:left;}
+.bsuccess-what-title{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;}
+.bsuccess-item{font-size:13px;padding:7px 0;border-bottom:1px solid var(--border);color:var(--text);}
+.bsuccess-item:last-child{border-bottom:none;}
+footer{background:var(--surface);border-top:1px solid var(--border);}
+.foot-top{padding:64px 48px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:56px;align-items:start;}
+.foot-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:3px;color:var(--accent);margin-bottom:8px;}
+.foot-tag{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;}
+.foot-socials{display:flex;gap:10px;flex-wrap:wrap;}
+.foot-social{padding:8px 16px;border:1px solid var(--border);font-size:12px;color:var(--muted);text-decoration:none;transition:border-color .2s,color .2s;}
+.foot-social:hover{border-color:var(--accent);color:var(--accent);}
+.foot-col-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:20px;}
+.foot-contact-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px;}
+.fci-icon{font-size:16px;min-width:22px;margin-top:2px;}
+.fci-lbl{font-size:10px;color:var(--muted);margin-bottom:3px;font-family:'DM Mono',monospace;letter-spacing:1px;text-transform:uppercase;}
+.fci-val{font-size:13px;color:var(--text);line-height:1.6;}
+.fci-val a{color:var(--text);text-decoration:none;}
+.fci-val a:hover{color:var(--accent);}
+.foot-nav{display:flex;flex-direction:column;}
+.foot-nav span{font-size:13px;color:var(--muted);transition:color .2s;padding:8px 0;border-bottom:1px solid var(--border);cursor:none;}
+.foot-nav span:hover{color:var(--accent);}
+.foot-note-block{margin-top:24px;}
+.foot-note-item{font-size:12px;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--border);line-height:1.5;}
+.foot-note-item:last-child{border-bottom:none;}
+.foot-bottom{border-top:1px solid var(--border);padding:22px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.foot-note{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
+@media(max-width:900px){
+  nav{padding:16px 24px;}
+  .hero{padding:100px 24px 60px;}
+  .hero-stats{display:none;}
+  .sec,.sol-sec,.trust-sec{padding:72px 24px;}
+  .prob-grid,.demo-wrap,.case-card,.calc-wrap,.booking-sec{grid-template-columns:1fr;}
+  .feat-grid{grid-template-columns:1fr 1fr;}
+  .pipe-grid{grid-template-columns:1fr;}
+  .pipe-wide{grid-template-columns:1fr;}
+  .ben-grid{grid-template-columns:1fr;}
+  .pipe-outcome{grid-template-columns:1fr 1fr;}
+  .po-item{border-right:none;border-bottom:1px solid var(--border);}
+  .case-tabs{flex-direction:column;}
+  .brow{grid-template-columns:1fr;}
+  .calc-out{position:static;}
+  .trust-grid{grid-template-columns:1fr;}
+  .trust-card--featured{grid-column:1;}
+  .trust-stat-row{gap:24px;}
+  .trust-bar{flex-direction:column;}
+  .trust-bar-div{display:none;}
+  .foot-top{grid-template-columns:1fr;padding:48px 24px;gap:36px;}
+  .foot-bottom{padding:20px 24px;flex-direction:column;text-align:center;}
+}
+
+/* ═══════════════════════════════════════════
+   LIVE ANIMATION LAYER
+═══════════════════════════════════════════ */
+
+/* Floating particles canvas */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55;}
+
+/* Noise grain overlay */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:1;opacity:.35;}
+
+/* Animated gradient orb that follows section scroll */
+.section-orb{position:absolute;width:800px;height:800px;border-radius:50%;pointer-events:none;filter:blur(120px);opacity:.06;animation:orbDrift 20s ease-in-out infinite;}
+@keyframes orbDrift{0%,100%{transform:translate(0,0) scale(1);}33%{transform:translate(60px,-40px) scale(1.1);}66%{transform:translate(-40px,30px) scale(.95);}}
+
+/* Hero title letter animation */
+.hero-title .char{display:inline-block;opacity:0;transform:translateY(40px) rotateX(30deg);animation:charIn .6s cubic-bezier(.22,1,.36,1) forwards;}
+@keyframes charIn{to{opacity:1;transform:translateY(0) rotateX(0);}}
+
+/* Stat counter animation */
+.stat-num{transition:none;}
+.stat-num.counting{animation:countFlash .05s ease-in-out;}
+@keyframes countFlash{0%,100%{opacity:1;}50%{opacity:.7;}}
+
+/* Pulsing accent border on cards */
+@keyframes borderPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,255,71,0);}50%{box-shadow:0 0 0 3px rgba(232,255,71,.08);}}
+
+/* Ticker glow */
+.ticker-wrap{position:relative;}
+.ticker-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,var(--accent),transparent);pointer-events:none;mix-blend-mode:multiply;}
+
+/* Scanning line effect on hero */
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(232,255,71,.012) 50%);background-size:100% 4px;pointer-events:none;animation:scanMove 8s linear infinite;opacity:.6;}
+@keyframes scanMove{from{background-position:0 0;}to{background-position:0 100vh;}}
+
+/* Animated counter numbers */
+.stat-num,.po-num,.ben-big{will-change:contents;}
+
+/* Live ping dot — hero eyebrow */
+.hero-eyebrow::before{content:'';display:inline-block;width:7px;height:7px;background:var(--accent);border-radius:50%;margin-right:10px;animation:ping 1.8s ease-in-out infinite;vertical-align:middle;}
+@keyframes ping{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.6);opacity:.4;}}
+
+/* Typewriter cursor on nav tag */
+.nav-tag::after{content:'|';animation:blink 1s step-end infinite;color:var(--accent);margin-left:2px;font-weight:300;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* Glitch on hover for section labels */
+.sec-label{position:relative;}
+.sec-label:hover{animation:glitch .3s ease;}
+@keyframes glitch{0%,100%{transform:translate(0);}20%{transform:translate(-2px,1px);color:var(--accent2);}40%{transform:translate(2px,-1px);color:var(--accent3);}60%{transform:translate(-1px,0);color:var(--accent);}80%{transform:translate(1px,0);}}
+
+/* Magnetic hover on primary buttons */
+.btn-primary{position:relative;overflow:hidden;}
+.btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,transparent 40%,rgba(255,255,255,.15) 50%,transparent 60%);transform:translateX(-100%);transition:transform .5s ease;}
+.btn-primary:hover::after{transform:translateX(100%);}
+
+/* Animated underline on footer nav */
+.foot-nav span{position:relative;}
+.foot-nav span::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--accent);transition:width .3s ease;}
+.foot-nav span:hover::after{width:100%;}
+
+/* Pipe card — animated badge glow on hover */
+.pipe-card:hover .pipe-badge{animation:badgeGlow .8s ease-in-out infinite alternate;}
+@keyframes badgeGlow{from{box-shadow:0 0 0 0 rgba(232,255,71,0);}to{box-shadow:0 0 8px 2px rgba(232,255,71,.25);}}
+
+/* Trust card shimmer */
+.trust-card::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(232,255,71,.04) 50%,transparent 60%);transform:translateX(-100%);transition:transform .8s ease;pointer-events:none;}
+.trust-card{position:relative;overflow:hidden;}
+.trust-card:hover::before{transform:translateX(100%);}
+
+/* Feat card number count-up feel */
+.feat:hover .feat-num{animation:numPop .2s ease-out;}
+@keyframes numPop{0%{transform:scale(1);}50%{transform:scale(1.08);}100%{transform:scale(1);}}
+
+/* Floating accent dots decoration */
+.hero-deco{position:absolute;pointer-events:none;}
+.deco-dot{position:absolute;width:3px;height:3px;border-radius:50%;background:var(--accent);animation:dotFloat var(--dur,6s) ease-in-out infinite var(--delay,0s);}
+@keyframes dotFloat{0%,100%{transform:translateY(0) translateX(0);opacity:.6;}50%{transform:translateY(var(--ty,-20px)) translateX(var(--tx,10px));opacity:.2;}}
+
+/* Live status indicator in nav area */
+.live-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:2px;text-transform:uppercase;}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:livePing 1.5s ease-in-out infinite;}
+@keyframes livePing{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,.6);}50%{box-shadow:0 0 0 5px rgba(34,197,94,0);}}
+
+/* Scroll progress bar */
+#scrollBar{position:fixed;top:0;left:0;height:2px;background:var(--accent);z-index:999;width:0%;transition:width .1s linear;box-shadow:0 0 8px var(--accent);}
+
+/* Animated grid lines in hero */
+.hero-grid{animation:gridShift 30s linear infinite;}
+@keyframes gridShift{from{background-position:0 0,0 0;}to{background-position:60px 60px,60px 60px;}}
+
+/* CTA section border animation */
+.booking-sec{position:relative;}
+
+/* Metric counter animation */
+@keyframes countUp{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+.cmetric-num{animation:countUp .6s ease forwards;}
+
+/* Staggered card entrance */
+.prob-card:nth-child(1){transition-delay:.05s;}
+.prob-card:nth-child(2){transition-delay:.1s;}
+.prob-card:nth-child(3){transition-delay:.15s;}
+.prob-card:nth-child(4){transition-delay:.2s;}
+.prob-card:nth-child(5){transition-delay:.25s;}
+.prob-card:nth-child(6){transition-delay:.3s;}
+.prob-card:nth-child(7){transition-delay:.35s;}
+.prob-card:nth-child(8){transition-delay:.4s;}
+.prob-card:nth-child(9){transition-delay:.45s;}
+
+.feat:nth-child(1){transition-delay:.04s;}
+.feat:nth-child(2){transition-delay:.08s;}
+.feat:nth-child(3){transition-delay:.12s;}
+.feat:nth-child(4){transition-delay:.16s;}
+.feat:nth-child(5){transition-delay:.2s;}
+.feat:nth-child(6){transition-delay:.24s;}
+.feat:nth-child(7){transition-delay:.28s;}
+.feat:nth-child(8){transition-delay:.32s;}
+
+.ben-card:nth-child(1){transition-delay:.06s;}
+.ben-card:nth-child(2){transition-delay:.12s;}
+.ben-card:nth-child(3){transition-delay:.18s;}
+.ben-card:nth-child(4){transition-delay:.24s;}
+.ben-card:nth-child(5){transition-delay:.3s;}
+.ben-card:nth-child(6){transition-delay:.36s;}
+
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <div class="logo">SalesFlow Pro</div>
+  <div class="nav-tag">Conference Sales Automation · India</div>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Free Consultation</button>
+</nav>
+<section class="hero">
+  <div class="hero-grid"></div><div class="hero-orb"></div><div class="hero-orb2"></div>
+  <div class="hero-eyebrow">// Sales Automation for Indian Conference Companies</div>
+  <h1 class="hero-title">Stop Losing<br><span>Leads.</span> Start <em>Closing.</em></h1>
+  <p class="hero-sub">We automate your entire conference sales pipeline — from first inquiry to payment confirmation — so your team focuses only on closing deals, not writing emails.</p>
+  <div class="hero-cta">
+    <button class="btn-primary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">See How It Works</button>
+    <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Free Consultation</button>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">73%</div><div class="stat-label">Faster Response</div></div>
+    <div class="stat"><div class="stat-num">3x</div><div class="stat-label">Lead Conversion</div></div>
+    <div class="stat"><div class="stat-num">90%</div><div class="stat-label">Less Manual Work</div></div>
+  </div>
+</section>
+<div class="ticker-wrap"><div class="ticker">
+  <span class="ticker-item">Instant Lead Response</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Auto Categorisation</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Smart Follow-Ups</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Sponsor Nurture</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Payment Reminders</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Cold Lead Recovery</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Lead Distribution</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Event Invites</span><span class="ticker-item">&#9733;</span>
+  <span class="ticker-item">Instant Lead Response</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Auto Categorisation</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Smart Follow-Ups</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Sponsor Nurture</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Payment Reminders</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Cold Lead Recovery</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Lead Distribution</span><span class="ticker-item">&#9733;</span><span class="ticker-item">Event Invites</span><span class="ticker-item">&#9733;</span>
+</div></div>
+<section class="sec">
+  <div class="sec-label reveal">// The Problem</div>
+  <h2 class="sec-title reveal">Conference companies<br>bleed revenue every day</h2>
+  <p class="reveal" style="color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:0;">Your team is buried in WhatsApp messages, repetitive emails, and manual follow-ups — while leads go cold, invoices sit unpaid, and your best people burn out.</p>
+  <div class="prob-grid">
+    <div class="prob-card reveal"><div class="prob-icon">&#9201;</div><div class="prob-title">Slow Lead Response</div><div class="prob-desc">78% of leads go to the first responder. If your team takes 12-18 hours to reply to a sponsor inquiry, you've already lost the deal to a competitor who replied in minutes.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128202;</div><div class="prob-title">Unorganised Lead Chaos</div><div class="prob-desc">Sponsor, speaker, and delegate inquiries all mixed in one inbox or WhatsApp group. No one knows who's handling what, and high-value leads get buried under noise.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128260;</div><div class="prob-title">Forgotten Follow-Ups</div><div class="prob-desc">Most sales need 5+ touchpoints. Your team gives up after 1-2. Leads go cold not because they weren't interested — but because no one followed up at the right time.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128184;</div><div class="prob-title">Unpaid Invoice Leakage</div><div class="prob-desc">Lakhs in outstanding sponsor and delegate invoices sit unchased each quarter — because your team is too busy selling to also chase payments manually.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128293;</div><div class="prob-title">Team Burnout &amp; Attrition</div><div class="prob-desc">Your best salespeople spend 60-70% of their day on repetitive tasks they hate. The result: burnout, attrition, and you constantly rehiring and retraining from scratch.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128200;</div><div class="prob-title">No Visibility Into Pipeline</div><div class="prob-desc">You don't know how many leads came in this week, which are being worked, or what stage each deal is at. Flying blind makes it impossible to improve or scale.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#10052;</div><div class="prob-title">Dead CRM &amp; Cold Database</div><div class="prob-desc">Hundreds of past inquirers sitting in a spreadsheet doing nothing. People who showed interest — never systematically nurtured. That's lakhs in untapped revenue.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128203;</div><div class="prob-title">Inconsistent Delegate Onboarding</div><div class="prob-desc">Confirmed delegates and sponsors receive event info days late or not at all. Poor post-sale experience kills re-bookings — your cheapest revenue source.</div></div>
+    <div class="prob-card reveal"><div class="prob-icon">&#128081;</div><div class="prob-title">No Sponsor Re-booking Strategy</div><div class="prob-desc">Past sponsors are your warmest leads — but most companies treat them like cold inquiries the next year. Without a structured re-booking flow, you restart from zero every event cycle, wasting months of relationship-building.</div></div>
+  </div>
+</section>
+<section class="sol-sec" id="features">
+  <div class="sec-label reveal">// The Solution</div>
+  <h2 class="sec-title reveal">Custom Automation Systems<br><span style="color:var(--accent)">Built Around Your Business</span></h2>
+  <p class="feat-subtitle reveal">These 8 are a <strong>starting point — not a ceiling.</strong> Every conference company operates differently. We map your full workflow and build exactly what your team needs: whether that's 4 automations or 20. Below is what most clients run from day one.</p>
+  <div class="feat-grid">
+    <div class="feat reveal"><div class="feat-num">01</div><div class="feat-icon">&#9889;</div><div class="feat-name">Instant Reply Automation</div><div class="feat-desc">Every inquiry gets an immediate, personalised reply — even at midnight. Sponsors feel attended to from the very first second.</div></div>
+    <div class="feat reveal"><div class="feat-num">02</div><div class="feat-icon">&#127991;</div><div class="feat-name">Auto Lead Categorisation</div><div class="feat-desc">Leads auto-tagged as Sponsor, Delegate, Speaker, or Media based on inquiry content — routed to the right bucket instantly.</div></div>
+    <div class="feat reveal"><div class="feat-num">03</div><div class="feat-icon">&#127919;</div><div class="feat-name">Lead Distribution Automation</div><div class="feat-desc">Assign leads to your best closers automatically — by type, seniority, or availability. No confusion about who handles what.</div></div>
+    <div class="feat reveal"><div class="feat-num">04</div><div class="feat-icon">&#9997;</div><div class="feat-name">Auto Response Generator</div><div class="feat-desc">Personalised responses based on lead type and interest level. Sounds human, reads relevant, scales infinitely.</div></div>
+    <div class="feat reveal"><div class="feat-num">05</div><div class="feat-icon">&#128197;</div><div class="feat-name">Auto Follow-Up Sequences</div><div class="feat-desc">Multi-touch follow-ups triggered automatically — Day 1, 3, 7, 14. Right message, right time, every time.</div></div>
+    <div class="feat reveal"><div class="feat-num">06</div><div class="feat-icon">&#127915;</div><div class="feat-name">Event Invite Automation</div><div class="feat-desc">Personalised invitations to the right segment at the perfect moment — with agenda, speaker teaser, and RSVP tracking.</div></div>
+    <div class="feat reveal"><div class="feat-num">07</div><div class="feat-icon">&#128179;</div><div class="feat-name">Payment Reminders</div><div class="feat-desc">Smart payment nudges with escalating urgency — gentle reminder, follow-up, final notice. Triggered automatically.</div></div>
+    <div class="feat reveal"><div class="feat-num">08</div><div class="feat-icon">&#128222;</div><div class="feat-name">Cold Lead Reactivation</div><div class="feat-desc">Quiet leads auto-flagged and forwarded to your calling team with full context and a ready talk track. No lead lost forever.</div></div>
+    <div class="feat-more reveal">
+      <div class="feat-more-icon">+</div>
+      <div class="feat-more-title">And many more — built for how your conference business actually operates. Delegate onboarding, speaker coordination, award ceremony flows, bespoke event pipelines, and anything else you need.</div>
+      <div class="feat-more-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Talk to us about your workflow &rarr;</div>
+    </div>
+  </div>
+</section>
+<section class="sec">
+  <div class="sec-label reveal">// How It Works</div>
+  <h2 class="sec-title reveal">Your automated<br>sales pipeline</h2>
+  <p class="reveal" style="color:var(--muted);max-width:600px;line-height:1.7;">From the moment a lead arrives to payment confirmed — every step runs automatically.</p>
+  <div class="pipe-grid">
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 01</div><div class="pipe-icon">&#128229;</div><div class="pipe-title">Lead Captured</div><div class="pipe-desc">Prospect fills a form, emails, or messages on WhatsApp. Every channel monitored — lead instantly centralised.</div><div class="pipe-tags"><span class="pipe-tag">Website</span><span class="pipe-tag">Email</span><span class="pipe-tag">WhatsApp</span><span class="pipe-tag">LinkedIn</span></div><div class="pipe-time">&#8987; 0 seconds</div></div>
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 02</div><div class="pipe-icon">&#127991;</div><div class="pipe-title">Auto-Categorised &amp; Scored</div><div class="pipe-desc">System reads the inquiry, tags it — Sponsor, Delegate, Speaker, or Media. Priority score assigned based on budget signals.</div><div class="pipe-tags"><span class="pipe-tag">Sponsor</span><span class="pipe-tag">Delegate</span><span class="pipe-tag">Speaker</span><span class="pipe-tag">Media</span></div><div class="pipe-time">&#8987; Under 5 seconds</div></div>
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 03</div><div class="pipe-icon">&#9889;</div><div class="pipe-title">Instant Personalised Reply</div><div class="pipe-desc">Warm, context-aware reply goes out immediately — tailored by lead type and company. Prospect feels attended to, even if your team is offline.</div><div class="pipe-tags"><span class="pipe-tag">Email</span><span class="pipe-tag">WhatsApp</span><span class="pipe-tag">SMS</span></div><div class="pipe-time">&#8987; Under 30 seconds</div></div>
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 04</div><div class="pipe-icon">&#127919;</div><div class="pipe-title">Routed to Right Sales Rep</div><div class="pipe-desc">Lead automatically assigned to the most relevant salesperson. Rep gets a WhatsApp/email alert with full lead context — ready to close.</div><div class="pipe-tags"><span class="pipe-tag">By Type</span><span class="pipe-tag">By Seniority</span><span class="pipe-tag">By Availability</span></div><div class="pipe-time">&#8987; Simultaneous</div></div>
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 05</div><div class="pipe-icon">&#128197;</div><div class="pipe-title">Follow-Up Sequences Fire</div><div class="pipe-desc">No reply? Multi-touch sequence kicks in — Day 1, 3, 7, 14. Each message adapts based on whether prospect opened or clicked.</div><div class="pipe-tags"><span class="pipe-tag">Day 1</span><span class="pipe-tag">Day 3</span><span class="pipe-tag">Day 7</span><span class="pipe-tag">Day 14</span></div><div class="pipe-time">&#8987; Auto-triggered</div></div>
+    <div class="pipe-card reveal"><div class="pipe-badge">STEP 06</div><div class="pipe-icon">&#128179;</div><div class="pipe-title">Payment &amp; Confirmation</div><div class="pipe-desc">On conversion: invoice sent automatically, payment reminders triggered at Day 3, 7, and final notice. Confirmation packs delivered instantly.</div><div class="pipe-tags"><span class="pipe-tag">Auto Invoice</span><span class="pipe-tag">Reminders</span><span class="pipe-tag">Confirmation</span></div><div class="pipe-time">&#8987; On conversion</div></div>
+    <div class="pipe-card pipe-wide reveal">
+      <div><div class="pipe-badge pipe-badge-cold">STEP 07 — SAFETY NET</div><div class="pipe-icon" style="font-size:36px;">&#128222;</div></div>
+      <div><div class="pipe-title">Cold Leads &rarr; Calling Team</div><div class="pipe-desc">Leads still silent after Day 14 are auto-flagged and forwarded to your calling team — with full history, inquiry type, and a prepared talk track. No lead is ever permanently lost.</div><div class="pipe-tags"><span class="pipe-tag">14+ Days Silent</span><span class="pipe-tag">Auto-Escalate</span><span class="pipe-tag">Call Script</span><span class="pipe-tag">Full History</span></div><div class="pipe-time">&#8987; Day 14+ &middot; Continuous monitoring</div></div>
+    </div>
+  </div>
+  <div class="pipe-outcome reveal">
+    <div class="po-item"><div class="po-num">30sec</div><div class="po-label">Max first response time</div></div>
+    <div class="po-item"><div class="po-num">7 steps</div><div class="po-label">Running 24/7 automatically</div></div>
+    <div class="po-item"><div class="po-num">0</div><div class="po-label">Leads fall through the cracks</div></div>
+    <div class="po-item"><div class="po-num">100%</div><div class="po-label">Pipeline visibility for your team</div></div>
+  </div>
+</section>
+<section class="sec" style="background:var(--surface);">
+  <div class="sec-label reveal">// Why It Matters</div>
+  <h2 class="sec-title reveal">Real results,<br><span style="color:var(--accent3)">measurable ROI</span></h2>
+  <div class="ben-grid">
+    <div class="ben-card reveal"><div class="ben-big">3x</div><div class="ben-title">More Leads Converted</div><div class="ben-desc">Automated follow-ups ensure no sponsor or delegate lead falls through. Speed and persistence dramatically increase close rates.</div></div>
+    <div class="ben-card reveal"><div class="ben-big">90%</div><div class="ben-title">Less Repetitive Admin</div><div class="ben-desc">Your team stops writing the same emails and chasing payments. They focus on conversations that actually close deals.</div></div>
+    <div class="ben-card reveal"><div class="ben-big">24/7</div><div class="ben-title">Sales Engine Never Sleeps</div><div class="ben-desc">While your team is offline, automation handles inquiries, sends follow-ups, and captures every opportunity — even on weekends.</div></div>
+    <div class="ben-card reveal"><div class="ben-big">30sec</div><div class="ben-title">First Response Time</div><div class="ben-desc">Down from 12-18 hours to under 30 seconds. Speed to respond is your #1 competitive advantage — now it's automatic.</div></div>
+    <div class="ben-card reveal"><div class="ben-big">80%</div><div class="ben-title">Invoice Recovery Rate</div><div class="ben-desc">Automated payment reminders with smart timing reduce outstanding invoices and improve your cash flow every quarter.</div></div>
+    <div class="ben-card reveal"><div class="ben-big">&#8734;</div><div class="ben-title">Scale Without Hiring</div><div class="ben-desc">Handle 3x more leads with the same team. Automation scales with your event calendar without adding headcount or burnout.</div></div>
+  </div>
+</section>
+<section class="sec">
+  <div class="sec-label reveal">// The Difference</div>
+  <h2 class="sec-title reveal">Manual vs Automated<br>Sales Operations</h2>
+  <div class="cmp-table reveal">
+    <div class="cmp-row cmp-head"><div class="cmp-cell">Capability</div><div class="cmp-cell">Without Automation</div><div class="cmp-cell cmp-hl">With SalesFlow Pro</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Lead Response Time</div><div class="cmp-cell"><span class="crs">&#10007;</span> 12-18 Hours</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Under 30 Seconds</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Lead Categorisation</div><div class="cmp-cell"><span class="crs">&#10007;</span> Manual, Inconsistent</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Automatic, Instant</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Sponsor Follow-Up Sequences</div><div class="cmp-cell"><span class="crs">&#10007;</span> Forgotten or Skipped</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Always On, Timed Perfectly</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Lead Distribution</div><div class="cmp-cell"><span class="crs">&#10007;</span> Manual Assignment</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Rules-Based, Instant</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Payment Reminders</div><div class="cmp-cell"><span class="crs">&#10007;</span> Missed or Inconsistent</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> 3-Stage Auto Escalation</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Cold Lead Recovery</div><div class="cmp-cell"><span class="crs">&#10007;</span> Lost Forever</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Escalated to Calling Team</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Works 24/7</div><div class="cmp-cell"><span class="crs">&#10007;</span> Business Hours Only</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Always Active</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Scales with Volume</div><div class="cmp-cell"><span class="crs">&#10007;</span> Requires More Staff</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Infinitely Scalable</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Pipeline Visibility</div><div class="cmp-cell"><span class="crs">&#10007;</span> No Real-Time View</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Live Dashboard &amp; Alerts</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Sponsor Re-booking</div><div class="cmp-cell"><span class="crs">&#10007;</span> Manual &amp; Ad-hoc</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Automated Post-Event Nurture</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Delegate Onboarding</div><div class="cmp-cell"><span class="crs">&#10007;</span> Delayed, Inconsistent</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Instant &amp; Personalised</div></div>
+    <div class="cmp-row"><div class="cmp-cell">Team Burnout Risk</div><div class="cmp-cell"><span class="crs">&#10007;</span> High — Repetitive Admin</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Eliminated — Admin Automated</div></div>
+    <div class="cmp-row"><div class="cmp-cell">CRM / Database Utilisation</div><div class="cmp-cell"><span class="crs">&#10007;</span> Unused, Stale Contacts</div><div class="cmp-cell cmp-hl-col"><span class="chk">&#10003;</span> Continuous Reactivation</div></div>
+  </div>
+</section>
+<section class="sec" id="demo" style="background:var(--surface);">
+  <div class="sec-label reveal">// Live Simulation</div>
+  <h2 class="sec-title reveal">See It In Action &mdash;<br><span style="color:var(--accent)">Your Pipeline, Live</span></h2>
+  <p class="reveal" style="color:var(--muted);max-width:580px;line-height:1.7;">Submit a sample inquiry. Watch the pipeline categorise, score, assign, and respond — exactly as it would in your real setup.</p>
+  <div class="demo-wrap reveal">
+    <div class="demo-left">
+      <div class="dpanel-label">// Incoming Inquiry</div>
+      <div class="dfield"><label class="dlabel">Contact Name</label><input class="dinput" id="dName" type="text" placeholder="e.g. Rajesh Sharma"></div>
+      <div class="dfield"><label class="dlabel">Company</label><input class="dinput" id="dCompany" type="text" placeholder="e.g. Infosys BPM Ltd"></div>
+      <div class="dfield"><label class="dlabel">Inquiry Type</label><select class="dinput" id="dType"><option value="">— Select —</option><option value="sponsor">Sponsorship Inquiry</option><option value="delegate">Delegate / Ticket Purchase</option><option value="speaker">Speaker Application</option><option value="media">Media / Press Pass</option><option value="partner">Partnership Inquiry</option></select></div>
+      <div class="dfield"><label class="dlabel">Budget Range</label><select class="dinput" id="dBudget"><option value="">— Select —</option><option value="high">&#8377;8.5L+</option><option value="mid">&#8377;2.5L &ndash; &#8377;8.5L</option><option value="low">Under &#8377;2.5L</option></select></div>
+      <div class="dfield"><label class="dlabel">Message</label><textarea class="dinput dtarea" id="dMsg" placeholder="e.g. We are interested in Gold Sponsorship for your upcoming CIO summit..."></textarea></div>
+      <button class="btn-primary" onclick="runDemo()" style="width:100%;margin-top:8px;cursor:none;">&#9889; Submit &amp; Watch Automation Run</button>
+    </div>
+    <div class="demo-right">
+      <div id="demoIdle" class="demo-idle"><div class="demo-idle-icon">&#129302;</div><div class="demo-idle-txt">Automation engine standing by...</div><div class="demo-idle-sub">Fill the form and submit to see the pipeline run.</div></div>
+      <div class="demo-live" id="demoLive" style="display:none;">
+        <div class="dstep" id="ds1"><div class="dstep-hd"><div class="dstep-dot run" id="ds1dot"></div><div class="dstep-title">Step 1 — Lead Captured</div><div class="dstep-time" id="ds1t"></div></div><div class="dstep-body" id="ds1b"></div></div>
+        <div class="dstep" id="ds2" style="opacity:0"><div class="dstep-hd"><div class="dstep-dot" id="ds2dot"></div><div class="dstep-title">Step 2 — Categorised &amp; Scored</div><div class="dstep-time" id="ds2t"></div></div><div class="dstep-body" id="ds2b"></div></div>
+        <div class="dstep" id="ds3" style="opacity:0"><div class="dstep-hd"><div class="dstep-dot" id="ds3dot"></div><div class="dstep-title">Step 3 — Routed to Rep</div><div class="dstep-time" id="ds3t"></div></div><div class="dstep-body" id="ds3b"></div></div>
+        <div class="dstep" id="ds4" style="opacity:0"><div class="dstep-hd"><div class="dstep-dot" id="ds4dot"></div><div class="dstep-title">Step 4 — Auto Response Sent</div><div class="dstep-time" id="ds4t"></div></div><div class="dstep-body" id="ds4b"></div></div>
+        <div class="dstep" id="ds5" style="opacity:0"><div class="dstep-hd"><div class="dstep-dot" id="ds5dot"></div><div class="dstep-title">Step 5 — Follow-Up Sequence Queued</div><div class="dstep-time" id="ds5t"></div></div><div class="dstep-body" id="ds5b"></div></div>
+        <div class="demo-done" id="demoDone" style="display:none;"><div class="demo-done-icon">&#9989;</div><div class="demo-done-txt">Pipeline Complete — All in under 30 seconds</div><div class="demo-done-sub">In your real setup, this runs automatically for every single lead.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="casestudies">
+  <div class="sec-label reveal">// Case Studies</div>
+  <h2 class="sec-title reveal">Results from<br><span style="color:var(--accent2)">Indian Conference Companies</span></h2>
+  <div class="case-tabs reveal">
+    <button class="ctab active" onclick="showCase(0)">Apex Summits India</button>
+    <button class="ctab" onclick="showCase(1)">Nexora Business Forums</button>
+    <button class="ctab" onclick="showCase(2)">Vantage Conclave Group</button>
+  </div>
+  <div class="case-card" id="case0">
+    <div class="case-left">
+      <div class="ctag-cs">B2B Summits &amp; Awards &middot; Mumbai, India</div>
+      <h3 class="ctitle">Apex Summits India grew sponsor revenue by 180% and freed their 5-person team from daily admin chaos</h3>
+      <p class="cdesc">Apex Summits India runs 10-12 industry summits and award ceremonies per year across HR, CX, and Supply Chain themes. Their 5-person team managed 500-600 inquiries annually through a shared Gmail inbox and WhatsApp group — no categorisation, no follow-up system. Senior staff were writing the same emails over and over instead of closing deals.</p>
+      <div class="cchallenge"><div class="clabel">// The Challenges</div>
+        <div class="citem">&#9888; 14-16 hour average lead response time across the team</div>
+        <div class="citem">&#9888; 45% of sponsor inquiries got only one follow-up then were dropped</div>
+        <div class="citem">&#9888; Sponsor and delegate leads mixed in same WhatsApp and inbox</div>
+        <div class="citem">&#9888; &#8377;6-8L in unpaid invoices per quarter chased manually</div>
+      </div>
+      <div class="clabel">// What We Implemented</div>
+      <div class="citem">&#10003; Instant WhatsApp + email reply automation across all inquiry sources</div>
+      <div class="citem">&#10003; Auto-tagging by sponsor, delegate, speaker, and media type</div>
+      <div class="citem">&#10003; 5-touch sponsor nurture sequence over 18 days, running 24/7</div>
+      <div class="citem">&#10003; 3-stage invoice follow-up triggered automatically on due dates</div>
+    </div>
+    <div class="case-right">
+      <div class="cmetrics">
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent)">14hrs&rarr;40sec</div><div class="cmetric-label">Lead Response Time</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent)">180%</div><div class="cmetric-label">Sponsor Revenue Growth</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent)">88%</div><div class="cmetric-label">Invoice Recovery Rate</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent)">2.8x</div><div class="cmetric-label">Sponsor Leads Converted</div></div>
+      </div>
+      <div class="cquote"><div class="cquote-txt">"Our team was spending more time writing emails than actually selling. After automation, they only touch a lead when it's ready to close. We ran 4 extra summits this year with the same headcount."</div><div class="cquote-auth">— Priya Nair, Director of Partnerships, Apex Summits India</div></div>
+      <div><div class="ctl-label">// Implementation Timeline</div><div class="ctl-bar"><div class="ctl-seg" style="width:15%;background:var(--accent2)">Wk 1<br><span>Setup</span></div><div class="ctl-seg" style="width:20%;background:var(--accent)">Wk 2<br><span>Test</span></div><div class="ctl-seg" style="width:65%;background:var(--accent3)">Wk 3+<br><span>Live &amp; Scaling</span></div></div></div>
+    </div>
+  </div>
+  <div class="case-card" id="case1" style="display:none;">
+    <div class="case-left">
+      <div class="ctag-cs">Leadership Conclaves &middot; Pune, India</div>
+      <h3 class="ctitle">Nexora Business Forums cut admin workload by 75% and launched 3 new verticals without hiring anyone new</h3>
+      <p class="cdesc">Nexora Business Forums runs 8-10 leadership conclaves per year — CIO, CFO, and CISO themes across Maharashtra and Delhi NCR. Their 4-person team handled everything manually. When they tried launching new verticals, the workload became unmanageable.</p>
+      <div class="cchallenge"><div class="clabel">// The Challenges</div>
+        <div class="citem">&#9888; Each team member spending 30+ hours/week on non-selling admin tasks</div>
+        <div class="citem">&#9888; Gold/Platinum sponsors handled identically to delegate walk-in inquiries</div>
+        <div class="citem">&#9888; No onboarding process — delegates received event info 3-5 days late</div>
+        <div class="citem">&#9888; Planning to hire 2 more staff at &#8377;40,000-50,000/month to handle growth</div>
+      </div>
+      <div class="clabel">// What We Implemented</div>
+      <div class="citem">&#10003; Lead priority scoring — Platinum/Gold sponsors auto fast-tracked to senior rep</div>
+      <div class="citem">&#10003; Standardised response playbooks so all 4 team members follow one system</div>
+      <div class="citem">&#10003; Automated delegate onboarding — event pack, agenda &amp; reminders sent instantly</div>
+      <div class="citem">&#10003; Smart daily digest showing only leads requiring human action that day</div>
+    </div>
+    <div class="case-right">
+      <div class="cmetrics">
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent2)">75%</div><div class="cmetric-label">Admin Workload Reduced</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent2)">3 new</div><div class="cmetric-label">Verticals Without New Hires</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent2)">&#8377;10.8L</div><div class="cmetric-label">Annual Hiring Costs Avoided</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent2)">0</div><div class="cmetric-label">Extra Staff Hired</div></div>
+      </div>
+      <div class="cquote"><div class="cquote-txt">"We were about to hire two more people just to keep up. After automation, our 4-person team now runs 3 extra event verticals without burning out. Best investment we've made."</div><div class="cquote-auth">— Rahul Deshmukh, Founder, Nexora Business Forums</div></div>
+      <div><div class="ctl-label">// ROI Realised</div><div class="ctl-bar"><div class="ctl-seg" style="width:30%;background:var(--accent2)">Month 1<br><span>Break Even</span></div><div class="ctl-seg" style="width:70%;background:var(--accent)">Month 2+<br><span>Net Positive ROI</span></div></div></div>
+    </div>
+  </div>
+  <div class="case-card" id="case2" style="display:none;">
+    <div class="case-left">
+      <div class="ctag-cs">Leadership Conclaves &amp; Awards &middot; Delhi NCR, India</div>
+      <h3 class="ctitle">Vantage Conclave Group recovered &#8377;14L from dormant leads and cut cost-per-sponsor by 52%</h3>
+      <p class="cdesc">Vantage Conclave Group organises 6-8 leadership conclaves and award ceremonies per year across Delhi NCR. Despite 5 years of events, their 2-person team had never systematically followed up with past inquirers. Over 800 contacts sat unused.</p>
+      <div class="cchallenge"><div class="clabel">// The Challenges</div>
+        <div class="citem">&#9888; 800+ past inquirers in CRM with zero follow-up or nurture plan</div>
+        <div class="citem">&#9888; 2-person team handling all inbound, outbound, and event ops at once</div>
+        <div class="citem">&#9888; Cost per sponsor acquisition stuck at &#8377;35,000-40,000 with no way to reduce</div>
+        <div class="citem">&#9888; Sponsors not re-booking due to poor post-event communication</div>
+      </div>
+      <div class="clabel">// What We Implemented</div>
+      <div class="citem">&#10003; WhatsApp + email reactivation campaign across all 800 dormant contacts</div>
+      <div class="citem">&#10003; Lead triage so the team only calls pre-warmed, interested prospects</div>
+      <div class="citem">&#10003; Post-event sponsor retention sequence with re-booking nudges and ROI recap</div>
+      <div class="citem">&#10003; Early-bird invoice automation with 3-stage escalation on overdue payments</div>
+    </div>
+    <div class="case-right">
+      <div class="cmetrics">
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent3)">&#8377;14L</div><div class="cmetric-label">Revenue from Dormant CRM</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent3)">52%</div><div class="cmetric-label">Lower Cost Per Sponsor</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent3)">35%</div><div class="cmetric-label">Dormant Contacts Reactivated</div></div>
+        <div class="cmetric"><div class="cmetric-num" style="color:var(--accent3)">78%</div><div class="cmetric-label">Sponsor Re-booking Rate</div></div>
+      </div>
+      <div class="cquote"><div class="cquote-txt">"We had 800 contacts in a spreadsheet doing nothing for 3 years. The reactivation campaign brought in &#8377;14 lakhs in 6 weeks. Our 2-person team now feels like a proper sales engine."</div><div class="cquote-auth">— Sandeep Khanna, Co-Founder, Vantage Conclave Group</div></div>
+      <div><div class="ctl-label">// CRM Reactivation Breakdown</div><div class="ctl-bar">
+        <div class="ctl-seg" style="width:35%;background:var(--accent3)">35% Reactivated<br><span>280 of 800</span></div>
+        <div class="ctl-seg" style="width:25%;background:var(--accent)">25% Converted<br><span>paid sponsors</span></div>
+        <div class="ctl-seg ctl-seg-muted" style="width:40%;">40% Warming<br><span>next campaign</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="calculator" style="background:var(--surface);">
+  <div class="sec-label reveal">// ROI Calculator</div>
+  <h2 class="sec-title reveal">See your estimated<br><span style="color:var(--accent)">cost savings</span></h2>
+  <p class="reveal" style="color:var(--muted);max-width:580px;line-height:1.7;">Fill in your current setup. We'll estimate how much you could save annually by automating your sales operations.</p>
+  <div class="calc-wrap reveal">
+    <div class="calc-in">
+      <div class="calc-in-label">// Your Current Setup</div>
+      <div class="calc-group"><div class="calc-gtitle">Sales Team</div>
+        <div class="calc-row"><label class="calc-lbl">Number of Sales Staff</label><div class="sldr-wrap"><input type="range" class="sldr" id="cSC" min="1" max="15" value="4" oninput="updateCalc()"><div class="sldr-val" id="cSCv">4 people</div></div></div>
+        <div class="calc-row"><label class="calc-lbl">Avg Monthly Salary per Sales Staff (&#8377;)</label><div class="sldr-wrap"><input type="range" class="sldr" id="cSS" min="20000" max="150000" step="5000" value="50000" oninput="updateCalc()"><div class="sldr-val" id="cSSv">&#8377;50,000</div></div></div>
+        <div class="calc-row"><label class="calc-lbl">% of Their Time on Repetitive Admin</label><div class="sldr-wrap"><input type="range" class="sldr" id="cSA" min="10" max="90" step="5" value="60" oninput="updateCalc()"><div class="sldr-val" id="cSAv">60%</div></div></div>
+      </div>
+      <div class="calc-group"><div class="calc-gtitle">Ops / Admin Team</div>
+        <div class="calc-row"><label class="calc-lbl">Number of Ops / Admin Staff</label><div class="sldr-wrap"><input type="range" class="sldr" id="cAC" min="0" max="10" value="2" oninput="updateCalc()"><div class="sldr-val" id="cACv">2 people</div></div></div>
+        <div class="calc-row"><label class="calc-lbl">Avg Monthly Salary per Admin Staff (&#8377;)</label><div class="sldr-wrap"><input type="range" class="sldr" id="cAS" min="15000" max="80000" step="5000" value="30000" oninput="updateCalc()"><div class="sldr-val" id="cASv">&#8377;30,000</div></div></div>
+      </div>
+      <div class="calc-group"><div class="calc-gtitle">Revenue Leakage</div>
+        <div class="calc-row"><label class="calc-lbl">Monthly Revenue Lost to Slow Response / Dropped Follow-Ups (&#8377;)</label><div class="sldr-wrap"><input type="range" class="sldr" id="cRL" min="0" max="500000" step="10000" value="150000" oninput="updateCalc()"><div class="sldr-val" id="cRLv">&#8377;1.5L</div></div></div>
+        <div class="calc-row"><label class="calc-lbl">Monthly Unpaid / Delayed Invoices (&#8377;)</label><div class="sldr-wrap"><input type="range" class="sldr" id="cIL" min="0" max="300000" step="10000" value="70000" oninput="updateCalc()"><div class="sldr-val" id="cILv">&#8377;70K</div></div></div>
+      </div>
+      <div class="calc-group"><div class="calc-gtitle">Pain Points You're Facing</div>
+        <div class="chkboxes">
+          <label class="chk-lbl"><input type="checkbox" id="cp1" checked onchange="updateCalc()"><span>Slow lead response time</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp2" checked onchange="updateCalc()"><span>Missed or inconsistent follow-ups</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp3" onchange="updateCalc()"><span>No lead categorisation system</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp4" checked onchange="updateCalc()"><span>Chasing invoices manually</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp5" onchange="updateCalc()"><span>High team burnout / attrition risk</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp6" onchange="updateCalc()"><span>Planning to hire more staff to scale</span></label>
+          <label class="chk-lbl"><input type="checkbox" id="cp7" onchange="updateCalc()"><span>Cold leads sitting unused in CRM</span></label>
+        </div>
+      </div>
+    </div>
+    <div class="calc-out">
+      <div class="calc-out-label">// Your Estimated Annual Savings</div>
+      <div class="calc-total"><div class="calc-total-lbl">Total Annual Cost Saving</div><div class="calc-total-num" id="calcTotal">&#8377;0</div><div class="calc-total-sub" id="calcSub">Adjust the sliders to see your estimate</div></div>
+      <div style="margin-bottom:20px;">
+        <div class="calc-bk-title">// Savings Breakdown</div>
+        <div class="calc-bk-row"><div class="calc-bk-lbl">Sales Admin Time Reclaimed</div><div class="calc-bk-val" id="brS">&#8377;0 / yr</div></div>
+        <div class="calc-bk-row"><div class="calc-bk-lbl">Ops / Admin Tasks Automated</div><div class="calc-bk-val" id="brA">&#8377;0 / yr</div></div>
+        <div class="calc-bk-row"><div class="calc-bk-lbl">Revenue from Recovered Leads</div><div class="calc-bk-val" id="brR">&#8377;0 / yr</div></div>
+        <div class="calc-bk-row"><div class="calc-bk-lbl">Invoice Recovery Improvement</div><div class="calc-bk-val" id="brI">&#8377;0 / yr</div></div>
+        <div class="calc-bk-row"><div class="calc-bk-lbl">Pain Point Multiplier</div><div class="calc-bk-val" id="brP">+&#8377;0 / yr</div></div>
+      </div>
+      <div class="calc-assume"><div class="calc-assume-title">// Assumptions Used</div><div class="calc-assume-item" id="asS">—</div><div class="calc-assume-item" id="asA">—</div><div class="calc-assume-item" id="asR">—</div></div>
+      <div class="calc-disclaimer"><strong>&#9888; Rough estimate only.</strong> Actual results depend on your specific team, sales volume, and implementation quality. Use this as a conversation starter — not a financial guarantee.</div>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" style="width:100%;margin-top:20px;cursor:none;">Discuss These Numbers With Us &rarr;</button>
+    </div>
+  </div>
+</section>
+<section class="trust-sec" id="trust">
+  <div class="sec-label reveal">// Why Trust Us</div>
+  <h2 class="sec-title reveal">We know your world.<br><span style="color:var(--accent)">We built this for it.</span></h2>
+  <p class="reveal" style="color:var(--muted);max-width:620px;line-height:1.8;margin-bottom:0;">Most automation agencies are generalists. We are not. SalesFlow Pro is built exclusively for Indian B2B conference companies — the chaos, the WhatsApp-first culture, the tight teams, the sprint-to-summit cycle. We speak your language.</p>
+  <div class="trust-grid reveal">
+    <div class="trust-card trust-card--featured">
+      <div class="trust-featured-label">// What Sets Us Apart</div>
+      <div class="trust-stat-row">
+        <div class="trust-stat"><div class="trust-stat-num">100%</div><div class="trust-stat-label">Conference Industry Focus</div></div>
+        <div class="trust-stat"><div class="trust-stat-num">2 wks</div><div class="trust-stat-label">Average Go-Live Time</div></div>
+        <div class="trust-stat"><div class="trust-stat-num">5+ yrs</div><div class="trust-stat-label">B2B Event Automation Experience</div></div>
+      </div>
+      <div class="trust-statement">We have spent years inside the Indian B2B conference industry. We know the 6-week sprint before a summit, the WhatsApp chaos, the sponsor ghosting, the last-minute delegate drops. We built our systems to solve exactly these problems — nothing generic, nothing off-the-shelf.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#128172;</div>
+      <div class="trust-card-title">Slack-First Approach</div>
+      <div class="trust-card-desc">Your team communicates on Slack — so does your automation. Every lead alert, pipeline update, and action item routes directly to your Slack channels. No extra tools, no extra logins, no friction.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#9881;</div>
+      <div class="trust-card-title">Built Around You, Not a Template</div>
+      <div class="trust-card-desc">We spend the first week mapping your exact lead types, team structure, event calendar, and sales process. Then we build an automation system that mirrors how your business actually runs.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#128205;</div>
+      <div class="trust-card-title">Local, Reachable, Accountable</div>
+      <div class="trust-card-desc">We are based in Maharashtra. You can call, WhatsApp, or meet us in person. No ticket queues, no offshore support, no ghosting after onboarding. We're available when your event deadline is tomorrow.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#128260;</div>
+      <div class="trust-card-title">Ongoing Optimisation, Not One-Time Setup</div>
+      <div class="trust-card-desc">Your conference calendar changes. Your team grows. Your lead types evolve. We stay with you — continuously monitoring, updating, and improving your automation as your business changes.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#128737;</div>
+      <div class="trust-card-title">Results Before Payment</div>
+      <div class="trust-card-desc">We run a 2-week proof-of-concept before you commit. You see the automation working with your actual leads, your actual team, your actual events. Only then do we discuss a commercial arrangement.</div>
+    </div>
+    <div class="trust-card">
+      <div class="trust-card-icon">&#128200;</div>
+      <div class="trust-card-title">Full Transparency, Always</div>
+      <div class="trust-card-desc">You get complete visibility into everything we build — the flows, the logic, the triggers, the data. No black boxes. Your team can see exactly what's running, why it's running, and what results it's generating at any point.</div>
+    </div>
+  </div>
+  <div class="trust-bar reveal">
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>No long-term lock-in contracts</span></div>
+    <div class="trust-bar-div"></div>
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>Live in under 2 weeks</span></div>
+    <div class="trust-bar-div"></div>
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>Slack-native workflow</span></div>
+    <div class="trust-bar-div"></div>
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>Conference-only specialists</span></div>
+    <div class="trust-bar-div"></div>
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>Fully customised to your team</span></div>
+    <div class="trust-bar-div"></div>
+    <div class="trust-bar-item"><span class="trust-bar-icon">&#10003;</span><span>Ongoing support &amp; optimisation</span></div>
+  </div>
+</section>
+<section class="booking-sec" id="contact">
+  <div class="booking-left">
+    <div class="sec-label">// Book a Free Consultation</div>
+    <h2 class="book-title">Let's talk about<br><span style="color:var(--accent)">your business.</span></h2>
+    <p class="book-sub">In 30 minutes, we'll map how automation fits your conference company — your lead types, team structure, and sales goals. No hard sell, just clarity.</p>
+    <div class="promises">
+      <div class="promise"><span class="pr-icon">&#128506;</span><div><div class="pr-title">Custom automation map</div><div class="pr-sub">You leave with a tailored blueprint — whether you hire us or not</div></div></div>
+      <div class="promise"><span class="pr-icon">&#128101;</span><div><div class="pr-title">Team structure analysis</div><div class="pr-sub">We'll assess how many staff you need now vs. with automation in place</div></div></div>
+      <div class="promise"><span class="pr-icon">&#128202;</span><div><div class="pr-title">Revenue impact estimate</div><div class="pr-sub">Projected ROI based on your team size, lead volume, and sales cycle</div></div></div>
+    </div>
+  </div>
+  <div class="booking-right">
+    <div class="bform" id="bookingForm">
+      <div class="bform-title">Book a Free Consultation</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;">Pick a time that works for you. The call is 30 minutes — no prep needed, just show up.</p>
+      <div style="min-width:320px;height:520px;overflow:hidden;border:1px solid var(--border);">
+        <iframe src="https://calendly.com/surajwaghmare/lets-catchup" width="100%" height="100%" frameborder="0" style="border:none;background:var(--bg);"></iframe>
+      </div>
+      <div style="text-align:center;margin-top:12px;font-size:11px;color:var(--muted);">No commitment &middot; No credit card &middot; 100% free</div>
+    </div>
+    <div class="bsuccess" id="bookingSuccess">
+      <div class="bsuccess-icon">&#127881;</div>
+      <h3 class="bsuccess-title">You're Booked!</h3>
+      <p class="bsuccess-sub">We'll send a WhatsApp confirmation shortly. Looking forward to speaking with you!</p>
+      <div class="bsuccess-what"><div class="bsuccess-what-title">What to prepare:</div><div class="bsuccess-item">Your current team size and how leads come in today</div><div class="bsuccess-item">Whether you use a CRM, spreadsheet, or just WhatsApp</div><div class="bsuccess-item">Your biggest challenge converting sponsors or delegates</div></div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="foot-top">
+    <div>
+      <div class="foot-logo">SalesFlow Pro</div>
+      <div class="foot-tag">Sales Automation built exclusively for<br>Indian conference &amp; events companies.</div>
+      <div class="foot-socials">
+        <a href="https://wa.me/919876543210" target="_blank" class="foot-social">WhatsApp</a>
+        <a href="/cdn-cgi/l/email-protection#9af2fff6f6f5dae9fbf6ffe9fcf6f5edeae8f5b4f3f4" class="foot-social">Email Us</a>
+        <a href="https://linkedin.com" target="_blank" class="foot-social">LinkedIn</a>
+      </div>
+    </div>
+    <div>
+      <div class="foot-col-title">// Contact Us</div>
+      <div class="foot-contact-item"><span class="fci-icon">&#128222;</span><div><div class="fci-lbl">Call / WhatsApp</div><div class="fci-val"><a href="tel:+919876543210">+91 98765 43210</a></div></div></div>
+      <div class="foot-contact-item"><span class="fci-icon">&#9993;</span><div><div class="fci-lbl">Email</div><div class="fci-val"><a href="/cdn-cgi/l/email-protection#fe969b929291be8d9f929b8d989291898e8c91d09790"><span class="__cf_email__" data-cfemail="e78f828b8b88a794868b8294818b8890979588c98e89">[email&#160;protected]</span></a></div></div></div>
+      <div class="foot-contact-item"><span class="fci-icon">&#128205;</span><div><div class="fci-lbl">Office</div><div class="fci-val">Mira Road East, Mira-Bhayandar,<br>Maharashtra 401107, India</div></div></div>
+      <div class="foot-contact-item"><span class="fci-icon">&#128336;</span><div><div class="fci-lbl">Working Hours</div><div class="fci-val">Mon-Sat &middot; 10am to 7pm IST</div></div></div>
+    </div>
+    <div>
+      <div class="foot-col-title">// Quick Links</div>
+      <div class="foot-nav">
+        <span onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Our Automation Systems</span>
+        <span onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">See Pipeline Simulation</span>
+        <span onclick="document.getElementById('casestudies').scrollIntoView({behavior:'smooth'})">Case Studies</span>
+        <span onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">ROI Calculator</span>
+        <span onclick="document.getElementById('trust').scrollIntoView({behavior:'smooth'})">Why Trust Us</span>
+        <span onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Free Consultation</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-note">&copy; 2025 SalesFlow Pro &middot; Sales Automation for Conference &amp; Events Companies &middot; India</div>
+    <div class="foot-note">Made with love for the Indian B2B conference industry</div>
+  </div>
+</footer>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const cur=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{cur.style.left=(e.clientX-5)+'px';cur.style.top=(e.clientY-5)+'px';});
+// Mark all reveals visible immediately on load (fixes blank section bug)
+document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+// Also observe for smooth scroll animations on reveal-anim elements
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:.05});
+document.querySelectorAll('.reveal-anim').forEach(el=>obs.observe(el));
+const DD={
+  sponsor:{tc:'t-sp',sc:'t-hi',label:'Sponsorship',score:'HOT',rep:'Ankit Mehta — Senior Sponsor Partnerships',fu:['Day 1: Custom sponsorship brochure sent','Day 3: Proposal follow-up with pricing tiers','Day 7: Value-add offer + case study','Day 14: Final attempt — cold flag if no reply'],email:'Subject: Sponsorship Interest Received!\n\nDear {name},\n\nThank you for reaching out from {company}. We have received your sponsorship inquiry.\n\nWe have Gold, Platinum, and Title Sponsor packages available. Ankit from our partnerships team will reach out within 2 hours with a custom proposal.\n\nWarm regards,\nSalesFlow Pro Team'},
+  delegate:{tc:'t-de',sc:'t-mi',label:'Delegate',score:'WARM',rep:'Sneha Patil — Delegate Sales',fu:['Day 1: Full agenda + speaker lineup sent','Day 3: Group discount offer (3+ tickets)','Day 7: Early-bird deadline reminder','Day 14: Last-chance pricing alert'],email:'Subject: Your Delegate Interest — Next Steps\n\nDear {name},\n\nThank you for your interest in attending! Excited to have {company} join us.\n\nSneha from our delegate sales team will follow up shortly with all package details.\n\nLooking forward to seeing you there!'},
+  speaker:{tc:'t-sk',sc:'t-mi',label:'Speaker',score:'REVIEW',rep:'Content Team — Review Queue',fu:['Day 2: Internal review reminder','Day 5: Decision email to applicant','Day 8: Follow-up if no response'],email:'Subject: Speaker Application Received!\n\nDear {name},\n\nThank you for applying to speak from {company}!\n\nOur content team reviews applications on a rolling basis. Expect to hear back within 5 business days.\n\nBest regards,\nContent Team'},
+  media:{tc:'t-sp',sc:'t-lo',label:'Media/Press',score:'STANDARD',rep:'PR & Comms Team',fu:['Day 2: Accreditation form follow-up','Day 5: Approval / rejection sent'],email:'Subject: Press Pass Application Confirmed\n\nDear {name},\n\nThank you for your interest in covering our event!\n\nOur PR team will review your application within 48 hours and provide full media access details.\n\nBest, PR Team'},
+  partner:{tc:'t-sp',sc:'t-hi',label:'Partnership',score:'HOT',rep:'Vikram Joshi — Strategic Partnerships',fu:['Day 1: Discovery call calendar link sent','Day 3: Partnership options deck shared','Day 7: Follow-up if no response','Day 14: Cold escalation flag'],email:'Subject: Partnership Inquiry — Let\'s Explore This!\n\nDear {name},\n\nExciting to hear from {company}! Vikram from our partnerships team will reach out today for a quick exploratory call to see if there is a good fit.\n\nLooking forward to it!'}
+};
+function runDemo(){
+  const name=document.getElementById('dName').value||'Rajesh Sharma';
+  const co=document.getElementById('dCompany').value||'Infosys BPM';
+  const type=document.getElementById('dType').value||'sponsor';
+  const bud=document.getElementById('dBudget').value||'high';
+  if(!type){alert('Please select an inquiry type.');return;}
+  const d=DD[type];
+  document.getElementById('demoIdle').style.display='none';
+  document.getElementById('demoLive').style.display='flex';
+  [1,2,3,4,5].forEach(i=>{document.getElementById('ds'+i).style.opacity='0';document.getElementById('ds'+i+'dot').className='dstep-dot';document.getElementById('ds'+i+'t').textContent='';document.getElementById('ds'+i+'b').innerHTML='';});
+  document.getElementById('demoDone').style.display='none';
+  const now=new Date();
+  const ts=s=>new Date(now.getTime()+s*1000).toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  setTimeout(()=>{document.getElementById('ds1').style.opacity='1';document.getElementById('ds1dot').className='dstep-dot run';document.getElementById('ds1t').textContent=ts(0);document.getElementById('ds1b').innerHTML='<strong>'+name+'</strong> from <strong>'+co+'</strong> submitted an inquiry.<br>Source: Website Form &bull; Channel: Email<br><span style="color:var(--muted);font-size:11px;">Lead ID: #'+Math.floor(Math.random()*90000+10000)+' &bull; '+now.toLocaleDateString('en-IN')+'</span>';setTimeout(()=>document.getElementById('ds1dot').className='dstep-dot done',1200);},300);
+  setTimeout(()=>{document.getElementById('ds2').style.opacity='1';document.getElementById('ds2dot').className='dstep-dot run';document.getElementById('ds2t').textContent=ts(4);document.getElementById('ds2b').innerHTML='Category: <span class="dtag '+d.tc+'">'+d.label+'</span> Priority: <span class="dtag '+d.sc+'">'+d.score+'</span> Budget: <span class="dtag '+(bud==='high'?'t-hi':bud==='mid'?'t-mi':'t-lo')+'">'+(bud==='high'?'&#8377;8.5L+':bud==='mid'?'&#8377;2.5-8.5L':'&lt;&#8377;2.5L')+'</span><br><span style="color:var(--muted);font-size:11px;display:block;margin-top:4px;">AI confidence: 96% &bull; Keywords matched</span>';setTimeout(()=>document.getElementById('ds2dot').className='dstep-dot done',1200);},2000);
+  setTimeout(()=>{document.getElementById('ds3').style.opacity='1';document.getElementById('ds3dot').className='dstep-dot run';document.getElementById('ds3t').textContent=ts(8);document.getElementById('ds3b').innerHTML='Assigned to: <strong>'+d.rep+'</strong><br>Alert via: <span class="dtag t-de">WhatsApp</span><span class="dtag t-de">Email</span><br><span style="color:var(--muted);font-size:11px;display:block;margin-top:4px;">Full lead context + history attached</span>';setTimeout(()=>document.getElementById('ds3dot').className='dstep-dot done',1200);},3800);
+  setTimeout(()=>{document.getElementById('ds4').style.opacity='1';document.getElementById('ds4dot').className='dstep-dot run';document.getElementById('ds4t').textContent=ts(12);document.getElementById('ds4b').innerHTML='<div style="background:var(--bg);border:1px solid var(--border);padding:12px;font-size:11px;font-family:\'DM Mono\',monospace;line-height:1.8;white-space:pre-wrap;max-height:120px;overflow:auto;color:var(--muted);">'+d.email.replace(/{name}/g,name).replace(/{company}/g,co)+'</div>';setTimeout(()=>document.getElementById('ds4dot').className='dstep-dot done',1200);},5800);
+  setTimeout(()=>{document.getElementById('ds5').style.opacity='1';document.getElementById('ds5dot').className='dstep-dot run';document.getElementById('ds5t').textContent=ts(16);document.getElementById('ds5b').innerHTML='Sequence activated ('+d.fu.length+' touchpoints):<br>'+d.fu.map((f,i)=>'<div style="padding:4px 0;border-bottom:1px solid var(--border);font-size:11px;"><span style="color:var(--accent);font-family:\'DM Mono\';">[' +(i+1)+']</span> '+f+'</div>').join('');setTimeout(()=>document.getElementById('ds5dot').className='dstep-dot done',1200);},7800);
+  setTimeout(()=>{document.getElementById('demoDone').style.display='block';},10500);
+}
+function showCase(idx){[0,1,2].forEach(i=>{document.getElementById('case'+i).style.display=i===idx?'grid':'none';document.querySelectorAll('.ctab')[i].classList.toggle('active',i===idx);});}
+function selectSlot(el){document.querySelectorAll('.slot').forEach(s=>s.classList.remove('selected'));el.classList.add('selected');}
+function submitBooking(){
+  const n=document.getElementById('bfName').value;
+  const e=document.getElementById('bfEmail').value;
+  const c=document.getElementById('bfCompany').value;
+  if(!n||!e||!c){document.getElementById('bookingForm').style.border='1px solid var(--accent2)';setTimeout(()=>document.getElementById('bookingForm').style.border='1px solid var(--border)',1500);return;}
+  document.getElementById('bookingForm').style.display='none';
+  document.getElementById('bookingSuccess').style.display='flex';
+}
+function fINR(n){if(n>=10000000)return'₹'+(n/10000000).toFixed(1)+' Cr';if(n>=100000)return'₹'+(n/100000).toFixed(1)+'L';if(n>=1000)return'₹'+(n/1000).toFixed(0)+'K';return'₹'+n;}
+function updateCalc(){
+  const sc=+document.getElementById('cSC').value;
+  const ss=+document.getElementById('cSS').value;
+  const sa=+document.getElementById('cSA').value/100;
+  const ac=+document.getElementById('cAC').value;
+  const as=+document.getElementById('cAS').value;
+  const rl=+document.getElementById('cRL').value;
+  const il=+document.getElementById('cIL').value;
+  document.getElementById('cSCv').textContent=sc+(sc===1?' person':' people');
+  document.getElementById('cSSv').textContent=fINR(ss);
+  document.getElementById('cSAv').textContent=Math.round(sa*100)+'%';
+  document.getElementById('cACv').textContent=ac+(ac===1?' person':' people');
+  document.getElementById('cASv').textContent=fINR(as);
+  document.getElementById('cRLv').textContent=fINR(rl);
+  document.getElementById('cILv').textContent=fINR(il);
+  const pc=['cp1','cp2','cp3','cp4','cp5','cp6','cp7'].filter(id=>document.getElementById(id).checked).length;
+  const s1=Math.round(sc*ss*sa*.75*12);
+  const s2=ac>0?Math.round(ac*as*.6*12):0;
+  const s3=Math.round(rl*.65*12);
+  const s4=Math.round(il*.8*12);
+  const base=s1+s2+s3+s4;
+  const bonus=Math.round(base*pc*.05);
+  const total=base+bonus;
+  document.getElementById('calcTotal').innerHTML=fINR(total);
+  document.getElementById('brS').innerHTML=fINR(s1)+' / yr';
+  document.getElementById('brA').innerHTML=fINR(s2)+' / yr';
+  document.getElementById('brR').innerHTML=fINR(s3)+' / yr';
+  document.getElementById('brI').innerHTML=fINR(s4)+' / yr';
+  document.getElementById('brP').innerHTML='+'+fINR(bonus)+' / yr';
+  document.getElementById('asS').innerHTML=sc+' staff &times; '+fINR(ss)+'/mo &times; '+Math.round(sa*100)+'% admin &times; 75% automatable = '+fINR(s1)+'/yr';
+  document.getElementById('asA').innerHTML=ac>0?ac+' ops staff &times; '+fINR(as)+'/mo &times; 60% automation = '+fINR(s2)+'/yr':'No ops/admin staff entered';
+  document.getElementById('asR').innerHTML='65% of '+fINR(rl)+'/mo leads + 80% of '+fINR(il)+'/mo invoices recovered = '+fINR(s3+s4)+'/yr';
+  const pb=total>0?Math.max(1,Math.round(150000/(total/12))):0;
+  document.getElementById('calcSub').textContent=total>0?'Est. payback: '+pb+' month'+(pb>1?'s':'')+' | '+pc+' pain point'+(pc!==1?'s':'')+' active':'Adjust sliders to see your estimate';
+}
+updateCalc();
+
+// ═══════════════════════════════════════════
+// LIVE ANIMATION ENGINE
+// ═══════════════════════════════════════════
+
+// Scroll progress bar
+const scrollBar = document.createElement('div');
+scrollBar.id = 'scrollBar';
+document.body.appendChild(scrollBar);
+window.addEventListener('scroll', () => {
+  const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  scrollBar.style.width = pct + '%';
+}, {passive: true});
+
+// Particle canvas
+(function(){
+  const canvas = document.createElement('canvas');
+  canvas.id = 'particles';
+  document.body.appendChild(canvas);
+  const ctx = canvas.getContext('2d');
+  let W, H, pts = [];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;}
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+  const N = 55;
+  for(let i=0;i<N;i++) pts.push({
+    x: Math.random()*window.innerWidth,
+    y: Math.random()*window.innerHeight,
+    vx: (Math.random()-.5)*.35,
+    vy: (Math.random()-.5)*.35,
+    r: Math.random()*1.6+.4,
+    o: Math.random()*.5+.1
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.beginPath();
+      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(232,255,71,${p.o})`;
+      ctx.fill();
+    });
+    // Draw connecting lines between nearby particles
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist<120){
+          ctx.beginPath();
+          ctx.moveTo(pts[i].x,pts[i].y);
+          ctx.lineTo(pts[j].x,pts[j].y);
+          ctx.strokeStyle=`rgba(232,255,71,${.12*(1-dist/120)})`;
+          ctx.lineWidth=.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// Floating decoration dots in hero
+(function(){
+  const hero = document.querySelector('.hero');
+  if(!hero) return;
+  const deco = document.createElement('div');
+  deco.className = 'hero-deco';
+  deco.style.cssText = 'position:absolute;inset:0;pointer-events:none;overflow:hidden;';
+  const configs = [
+    {left:'12%',top:'20%',dur:'7s',delay:'0s',ty:'-25px',tx:'15px'},
+    {left:'25%',top:'60%',dur:'9s',delay:'-3s',ty:'20px',tx:'-10px'},
+    {left:'70%',top:'30%',dur:'6s',delay:'-1s',ty:'-18px',tx:'8px'},
+    {left:'80%',top:'70%',dur:'11s',delay:'-5s',ty:'22px',tx:'-15px'},
+    {left:'45%',top:'15%',dur:'8s',delay:'-2s',ty:'-12px',tx:'20px'},
+    {left:'55%',top:'80%',dur:'7.5s',delay:'-4s',ty:'16px',tx:'-8px'},
+    {left:'90%',top:'45%',dur:'10s',delay:'-6s',ty:'-20px',tx:'12px'},
+    {left:'5%',top:'75%',dur:'8.5s',delay:'-1.5s',ty:'18px',tx:'10px'},
+  ];
+  configs.forEach(cfg=>{
+    const d = document.createElement('div');
+    d.className = 'deco-dot';
+    d.style.cssText = `left:${cfg.left};top:${cfg.top};--dur:${cfg.dur};--delay:${cfg.delay};--ty:${cfg.ty};--tx:${cfg.tx};`;
+    deco.appendChild(d);
+  });
+  hero.appendChild(deco);
+})();
+
+// Live badge in nav
+(function(){
+  const navTag = document.querySelector('.nav-tag');
+  if(!navTag) return;
+  const badge = document.createElement('span');
+  badge.className = 'live-badge';
+  badge.style.cssText = 'margin-left:20px;';
+  badge.innerHTML = '<span class="live-dot"></span>LIVE';
+  navTag.parentNode.insertBefore(badge, navTag.nextSibling);
+})();
+
+// Animated stat counters in hero
+(function(){
+  const stats = [
+    {el: null, target: 73, suffix: '%', label: 'Faster Response'},
+    {el: null, target: 3,  suffix: 'x', label: 'Lead Conversion'},
+    {el: null, target: 90, suffix: '%', label: 'Less Manual Work'},
+  ];
+  const nums = document.querySelectorAll('.stat-num');
+  if(!nums.length) return;
+  nums.forEach((el,i)=>{
+    if(!stats[i]) return;
+    stats[i].el = el;
+    let start = 0;
+    const end = stats[i].target;
+    const suffix = stats[i].suffix;
+    const duration = 1800;
+    const startTime = performance.now() + i * 200;
+    function tick(now){
+      if(now < startTime){ requestAnimationFrame(tick); return; }
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed/duration, 1);
+      const ease = 1 - Math.pow(1-progress, 3);
+      el.textContent = Math.round(ease * end) + suffix;
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  });
+})();
+
+// Scroll-triggered counter animation for pipe-outcome and ben-big numbers
+(function(){
+  function animateCount(el, target, suffix, prefix){
+    if(el.dataset.animated) return;
+    el.dataset.animated = '1';
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now){
+      const elapsed = now - start;
+      const progress = Math.min(elapsed/duration, 1);
+      const ease = 1 - Math.pow(1-progress, 3);
+      const val = Math.round(ease * target);
+      el.textContent = (prefix||'') + val + (suffix||'');
+      if(progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  const countObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(!e.isIntersecting) return;
+      const el = e.target;
+      const txt = el.textContent.trim();
+      // Parse: 30sec, 7 steps, 0, 100%, 3x, 90%, 24/7, 80%, ∞
+      if(txt === '∞' || txt === '24/7' || txt.includes('/')) return;
+      const match = txt.match(/^([^\d]*)(\d+)([^\d]*)$/);
+      if(match){
+        animateCount(el, parseInt(match[2]), match[3], match[1]);
+        countObs.unobserve(el);
+      }
+    });
+  },{threshold:.5});
+  document.querySelectorAll('.po-num, .ben-big').forEach(el=>countObs.observe(el));
+})();
+
+// Staggered card reveal on scroll
+(function(){
+  const cardObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        e.target.style.transform='translateY(0)';
+        cardObs.unobserve(e.target);
+      }
+    });
+  },{threshold:.08});
+  document.querySelectorAll('.prob-card,.feat,.ben-card,.trust-card,.pipe-card').forEach(el=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(20px)';
+    el.style.transition='opacity .5s ease, transform .5s ease';
+    cardObs.observe(el);
+  });
+})();
+
+// Magnetic cursor effect on buttons
+document.querySelectorAll('.btn-primary,.btn-ghost,.nav-cta').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r = btn.getBoundingClientRect();
+    const x = e.clientX - r.left - r.width/2;
+    const y = e.clientY - r.top - r.height/2;
+    btn.style.transform = `translate(${x*.12}px,${y*.12}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transform = '';
+  });
+});
+
+// Cursor grow on interactive elements
+const curEl = document.getElementById('cursor');
+document.querySelectorAll('button,a,.ctab,.slot,.feat,.prob-card,.ben-card,.trust-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    curEl.style.transform='scale(3)';
+    curEl.style.background='rgba(232,255,71,.4)';
+  });
+  el.addEventListener('mouseleave',()=>{
+    curEl.style.transform='scale(1)';
+    curEl.style.background='var(--accent)';
+  });
+});
+curEl.style.transition='transform .2s ease, background .2s ease';
+
+// Ticker speed up on hover
+(function(){
+  const ticker = document.querySelector('.ticker');
+  if(!ticker) return;
+  ticker.addEventListener('mouseenter',()=>ticker.style.animationDuration='8s');
+  ticker.addEventListener('mouseleave',()=>ticker.style.animationDuration='22s');
+})();
+
+</script>
+</body>
+</html>
