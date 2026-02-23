@@ -264,28 +264,139 @@ footer{background:var(--surface);border-top:1px solid var(--border);}
 .foot-bottom{border-top:1px solid var(--border);padding:22px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
 .foot-note{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);}
 @media(max-width:900px){
-  nav{padding:16px 24px;}
-  .hero{padding:100px 24px 60px;}
+  /* NAV */
+  nav{padding:14px 20px;gap:10px;}
+  .nav-tag{display:none;}
+  .live-badge{display:none !important;}
+  .nav-cta{display:none;}
+  .logo{font-size:18px;}
+
+  /* HERO */
+  .hero{padding:100px 20px 56px;justify-content:center;}
+  .hero-eyebrow{font-size:10px;letter-spacing:2px;margin-bottom:16px;}
+  .hero-title{font-size:clamp(52px,13vw,88px);margin-bottom:22px;}
+  .hero-sub{font-size:15px;margin-bottom:32px;}
+  .hero-cta{flex-direction:column;gap:10px;flex-wrap:wrap;}
+  .hero-cta .btn-primary,.hero-cta .btn-ghost{width:100%;text-align:center;padding:14px 24px;}
   .hero-stats{display:none;}
-  .sec,.sol-sec,.trust-sec{padding:72px 24px;}
-  .prob-grid,.demo-wrap,.case-card,.calc-wrap,.booking-sec{grid-template-columns:1fr;}
-  .feat-grid{grid-template-columns:1fr 1fr;}
-  .pipe-grid{grid-template-columns:1fr;}
-  .pipe-wide{grid-template-columns:1fr;}
-  .ben-grid{grid-template-columns:1fr;}
+  .hero::after{display:none;}
+
+  /* SECTIONS */
+  .sec,.sol-sec,.trust-sec{padding:60px 20px;}
+  .sec-title{font-size:clamp(34px,8vw,56px);margin-bottom:16px;}
+
+  /* PROBLEM */
+  .prob-grid{grid-template-columns:1fr;gap:1px;}
+  .prob-card{padding:28px 22px;}
+
+  /* FEATURES */
+  .feat-grid{grid-template-columns:1fr;gap:1px;}
+  .feat{padding:28px 22px;}
+  .feat-num{font-size:38px;}
+  .feat-more{padding:28px 22px;}
+
+  /* PIPELINE */
+  .pipe-grid{grid-template-columns:1fr;gap:12px;}
+  .pipe-wide{grid-template-columns:1fr;gap:0;}
+  .pipe-card{padding:24px 20px;}
   .pipe-outcome{grid-template-columns:1fr 1fr;}
-  .po-item{border-right:none;border-bottom:1px solid var(--border);}
-  .case-tabs{flex-direction:column;}
-  .brow{grid-template-columns:1fr;}
-  .calc-out{position:static;}
-  .trust-grid{grid-template-columns:1fr;}
+  .po-item{border-right:none;border-bottom:1px solid var(--border);padding:22px 16px;}
+  .po-num{font-size:30px;}
+
+  /* BENEFITS */
+  .ben-grid{grid-template-columns:1fr;gap:12px;}
+  .ben-card{padding:28px 22px;}
+  .ben-big{font-size:46px;}
+
+  /* COMPARE TABLE — stack into readable cards */
+  .cmp-table{margin-top:36px;}
+  .cmp-row{grid-template-columns:1fr;border-bottom:2px solid var(--border);}
+  .cmp-row.cmp-head{display:none;}
+  .cmp-cell{padding:10px 18px;border-right:none;font-size:13px;}
+  .cmp-cell:nth-child(1){background:var(--surface);font-size:12px;color:var(--muted);padding:14px 18px 6px;border-bottom:none;}
+  .cmp-cell:nth-child(2){padding:4px 18px;border-bottom:none;color:#666;}
+  .cmp-cell:nth-child(3){padding:4px 18px 14px;background:rgba(232,255,71,.04);}
+
+  /* DEMO */
+  .demo-wrap{grid-template-columns:1fr;gap:1px;}
+  .demo-left{padding:28px 20px;}
+  .demo-right{padding:28px 20px;min-height:320px;}
+
+  /* CASE STUDIES */
+  .case-tabs{flex-direction:column;gap:1px;}
+  .ctab{padding:12px 16px;text-align:left;}
+  .case-card{grid-template-columns:1fr;}
+  .case-left{padding:32px 22px;}
+  .case-right{padding:32px 22px;}
+  .cmetrics{grid-template-columns:1fr 1fr;}
+  .cmetric{padding:16px 12px;}
+  .cmetric-num{font-size:22px;}
+  .ctl-bar{flex-wrap:wrap;height:auto;gap:2px;}
+  .ctl-seg{min-width:60px;height:40px;}
+
+  /* CALCULATOR */
+  .calc-wrap{grid-template-columns:1fr;gap:1px;}
+  .calc-in{padding:28px 20px;}
+  .calc-out{position:static;padding:28px 20px;}
+  .calc-total-num{font-size:38px;}
+
+  /* TRUST */
+  .trust-grid{grid-template-columns:1fr;gap:1px;}
   .trust-card--featured{grid-column:1;}
-  .trust-stat-row{gap:24px;}
+  .trust-card{padding:28px 22px;}
+  .trust-stat-row{gap:20px;flex-wrap:wrap;}
+  .trust-stat-num{font-size:38px;}
+  .trust-statement{font-size:14px;}
   .trust-bar{flex-direction:column;}
   .trust-bar-div{display:none;}
-  .foot-top{grid-template-columns:1fr;padding:48px 24px;gap:36px;}
-  .foot-bottom{padding:20px 24px;flex-direction:column;text-align:center;}
+  .trust-bar-item{padding:14px 18px;}
+
+  /* BOOKING */
+  .booking-sec{grid-template-columns:1fr;gap:40px;padding:60px 20px;}
+  .book-title{font-size:clamp(32px,7vw,48px);}
+  .bform{padding:24px 18px;}
+  .brow{grid-template-columns:1fr;}
+
+  /* FOOTER */
+  .foot-top{grid-template-columns:1fr;padding:40px 20px;gap:32px;}
+  .foot-bottom{padding:18px 20px;flex-direction:column;text-align:center;gap:8px;}
+  .foot-socials{flex-wrap:wrap;}
+  .foot-note{font-size:10px;}
 }
+
+@media(max-width:480px){
+  nav{padding:12px 16px;}
+  .logo{font-size:16px;}
+  .hero{padding:88px 16px 48px;}
+  .hero-title{font-size:clamp(44px,14vw,72px);}
+  .sec,.sol-sec,.trust-sec{padding:48px 16px;}
+  .prob-card,.feat,.pipe-card,.ben-card,.trust-card{padding:24px 18px;}
+  .case-left,.case-right{padding:24px 18px;}
+  .calc-in,.calc-out,.bform,.demo-left,.demo-right{padding:22px 16px;}
+  .booking-sec{padding:48px 16px;}
+  .foot-top{padding:32px 16px;}
+  .pipe-outcome{grid-template-columns:1fr;}
+  .cmetrics{grid-template-columns:1fr;}
+  .cmp-cell{padding:8px 14px;font-size:12px;}
+  .slots{grid-template-columns:repeat(2,1fr);}
+  .hero-cta .btn-primary,.hero-cta .btn-ghost{font-size:13px;padding:13px 20px;}
+  .trust-stat-num{font-size:32px;}
+  .ben-big{font-size:40px;}
+  .calc-total-num{font-size:32px;}
+}
+
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:200;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--accent);transition:transform .3s ease,opacity .3s ease;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;top:53px;left:0;right:0;background:rgba(10,10,8,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:99;flex-direction:column;padding:8px 0;box-shadow:0 20px 40px rgba(0,0,0,.5);}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{display:block;padding:15px 24px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border);cursor:pointer;transition:color .2s,background .2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.mobile-menu a:hover,.mobile-menu a:active{color:var(--accent);background:rgba(232,255,71,.05);}
+.mobile-menu a:last-child{color:var(--accent);font-weight:500;border-bottom:none;}
+@media(max-width:900px){.hamburger{display:flex;}}
 
 /* ═══════════════════════════════════════════
    LIVE ANIMATION LAYER
@@ -419,7 +530,18 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
   <div class="logo">SalesFlow Pro</div>
   <div class="nav-tag">Conference Sales Automation · India</div>
   <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book Free Consultation</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="navScrollTo('features')">Our Automation Systems</a>
+  <a onclick="navScrollTo('demo')">Live Pipeline Demo</a>
+  <a onclick="navScrollTo('casestudies')">Case Studies</a>
+  <a onclick="navScrollTo('calculator')">ROI Calculator</a>
+  <a onclick="navScrollTo('trust')">Why Trust Us</a>
+  <a onclick="navScrollTo('contact')">Book Free Consultation</a>
+</div>
 <section class="hero">
   <div class="hero-grid"></div><div class="hero-orb"></div><div class="hero-orb2"></div>
   <div class="hero-eyebrow">// Sales Automation for Indian Conference Companies</div>
@@ -1125,6 +1247,37 @@ curEl.style.transition='transform .2s ease, background .2s ease';
   ticker.addEventListener('mouseenter',()=>ticker.style.animationDuration='8s');
   ticker.addEventListener('mouseleave',()=>ticker.style.animationDuration='22s');
 })();
+
+// ── Mobile hamburger ──────────────────────────────────
+function toggleMobileMenu(){
+  const hb=document.getElementById('hamburger');
+  const mm=document.getElementById('mobileMenu');
+  if(!hb||!mm)return;
+  hb.classList.toggle('open');
+  mm.classList.toggle('open');
+}
+function navScrollTo(id){
+  const el=document.getElementById(id);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+  const hb=document.getElementById('hamburger');
+  const mm=document.getElementById('mobileMenu');
+  if(hb)hb.classList.remove('open');
+  if(mm)mm.classList.remove('open');
+}
+document.addEventListener('click',e=>{
+  const hb=document.getElementById('hamburger');
+  const mm=document.getElementById('mobileMenu');
+  if(!hb||!mm)return;
+  if(!mm.contains(e.target)&&!hb.contains(e.target)){
+    hb.classList.remove('open');
+    mm.classList.remove('open');
+  }
+});
+// Hide custom cursor on touch devices
+if('ontouchstart' in window||window.innerWidth<900){
+  const ce=document.getElementById('cursor');
+  if(ce)ce.style.display='none';
+}
 
 </script>
 </body>
